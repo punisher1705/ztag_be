@@ -1,0 +1,36 @@
+# Never let the host's local venv leak into the build context —
+# it has absolute shebang paths baked in for the HOST machine, which
+# breaks gunicorn/python3 execution inside the container.
+.venv/
+venv/
+
+# Python cruft
+__pycache__/
+*.pyc
+*.pyo
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+htmlcov/
+.coverage
+
+# Environment / secrets — never bake these into an image layer
+.env
+.env.*
+!.env.example
+
+# Git
+.git/
+.gitignore
+
+# IDE / OS
+.vscode/
+.idea/
+.DS_Store
+
+# Docs and non-runtime files not needed inside the image
+docs/
+k8s/
+helm/
+terraform/
+README.md

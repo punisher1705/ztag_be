@@ -28,6 +28,12 @@ env: ## Copy .env.example to .env if .env doesn't already exist
 	@test -f .env || cp .env.example .env
 	@echo ".env is ready — edit it before first run if needed."
 
+sync: ## Install/sync all Python deps locally via uv (for running things outside Docker)
+	uv sync
+
+check-config: sync ## Quick local sanity check that .env loads correctly, no Docker needed
+	uv run python scripts/check_config.py
+
 # --- Lifecycle ---
 
 up: env ## Start all services in the background
