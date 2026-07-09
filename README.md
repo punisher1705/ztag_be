@@ -133,7 +133,7 @@ make ollama-pull
 ### 4. Verify it's running
 
 ```bash
-curl http://localhost:5000/healthz
+curl http://localhost:5001/healthz
 ```
 
 Expected:
@@ -141,7 +141,7 @@ Expected:
 {"status": "ok", "service": "zero-trust-gateway", "env": "development"}
 ```
 
-Swagger UI: [http://localhost:5000/docs](http://localhost:5000/docs)
+Swagger UI: [http://localhost:5001/docs](http://localhost:5001/docs)
 
 ### Local development without Docker (fast iteration)
 
@@ -206,8 +206,8 @@ zero-trust-gateway/
 
 Interactive Swagger/OpenAPI docs are generated automatically by APIFlask — no hand-maintained API reference to keep in sync:
 
-- **Local:** [http://localhost:5000/docs](http://localhost:5000/docs)
-- **Raw spec:** [http://localhost:5000/openapi.json](http://localhost:5000/openapi.json)
+- **Local:** [http://localhost:5001/docs](http://localhost:5001/docs)
+- **Raw spec:** [http://localhost:5001/openapi.json](http://localhost:5001/openapi.json)
 
 ## Testing
 

@@ -1,8 +1,7 @@
 [project]
-name = "ztag-be"
+name = "zero-trust-gateway"
 version = "0.1.0"
-description = "Add your description here"
-readme = "README.md"
+description = "Zero-Trust API Gateway with AI-assisted anomaly detection"
 requires-python = ">=3.11"
 dependencies = [
     "flask==3.0.3",
@@ -37,27 +36,46 @@ dev = [
     "fakeredis==2.24.1",
     "ruff==0.6.9",
     "mypy==1.11.2",
+    "bump-my-version==0.28.1",
 ]
 
 [tool.ruff]
 line-length = 100
 target-version = "py311"
- 
+
 [tool.ruff.lint]
 select = ["E", "F", "I", "UP", "B"]
- 
+
 [tool.mypy]
 python_version = "3.11"
 ignore_missing_imports = true
 disallow_untyped_defs = false
- 
+
 [tool.pytest.ini_options]
 testpaths = ["tests"]
 env_files = [".env.test"]
- 
+
+[tool.bumpversion]
+current_version = "0.1.0"
+commit = true
+tag = true
+tag_name = "v{new_version}"
+message = "chore(release): bump version {current_version} → {new_version}"
+allow_dirty = false
+
+[[tool.bumpversion.files]]
+filename = "pyproject.toml"
+search = 'version = "{current_version}"'
+replace = 'version = "{new_version}"'
+
+[[tool.bumpversion.files]]
+filename = "app/core/version.py"
+search = '__version__ = "{current_version}"'
+replace = '__version__ = "{new_version}"'
+
 [build-system]
 requires = ["hatchling"]
 build-backend = "hatchling.build"
- 
+
 [tool.hatch.build.targets.wheel]
 packages = ["app"]

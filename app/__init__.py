@@ -9,6 +9,7 @@ AI anomaly agent get registered here incrementally as they're built.
 from apiflask import APIFlask
 
 from app.core.config import get_settings
+from app.core.version import __version__
 
 
 def create_app() -> APIFlask:
@@ -17,7 +18,7 @@ def create_app() -> APIFlask:
     app = APIFlask(
         __name__,
         title=settings.app_name,
-        version="0.1.0",
+        version=__version__,
         docs_path="/docs",
         spec_path="/openapi.json",
     )

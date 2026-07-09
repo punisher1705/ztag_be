@@ -31,7 +31,7 @@ class Settings(BaseSettings):
     app_secret_key: str = Field(..., min_length=16)
     log_level: str = Field(default="INFO")
     host: str = Field(default="0.0.0.0")
-    port: int = Field(default=5000)
+    port: int = Field(default=5001)
  
     # --- Database ---
     db_host: str
@@ -73,7 +73,7 @@ class Settings(BaseSettings):
     # --- Downstream services ---
     downstream_services: str = ""
 
-    @field_validator("app_enf")
+    @field_validator("app_env")
     @classmethod
     def validate_env(cls, v: str) -> str:
         allowed = {"development", "staging", "production"}

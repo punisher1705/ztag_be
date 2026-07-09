@@ -38,8 +38,8 @@ check-config: sync ## Quick local sanity check that .env loads correctly, no Doc
 
 up: env ## Start all services in the background
 	$(COMPOSE) up -d --build
-	@echo "Gateway:     http://localhost:5000"
-	@echo "Swagger UI:  http://localhost:5000/docs"
+	@echo "Gateway:     http://localhost:5001"
+	@echo "Swagger UI:  http://localhost:5001/docs"
 	@echo "Grafana:     http://localhost:3000"
 	@echo "Prometheus:  http://localhost:9090"
 
@@ -125,3 +125,20 @@ clean: ## Stop containers and remove volumes (WARNING: deletes local db/redis da
 
 prune: ## Remove dangling Docker images/build cache
 	docker system prune -f
+
+# --- Versioning ---
+
+version: ## Print the current app version
+	@uv run python -c "from app.core.version import __version__; print(__version__)"
+
+bump-patch: ## Bump PATCH version (0.1.0 -> 0.1.1), commit, and tag
+	uv run bump-my-version bump patch
+
+bump-minor: ## Bump MINOR version (0.1.0 -> 0.2.0), commit, and tag
+	uv run bump-my-version bump minor
+
+bump-major: ## Bump MAJOR version (0.1.0 -> 1.0.0), commit, and tag
+	uv run bump-my-version bump major
+
+release: ## Push the current branch and tags — triggers the release pipeline
+	git push && git push --tags

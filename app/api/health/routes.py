@@ -11,6 +11,7 @@ out of the load-balancer rotation without restarting it.
 from apiflask import APIBlueprint
 
 from app.core.config import get_settings
+from app.core.version import __version__
 
 health_bp = APIBlueprint("health", __name__)
 
@@ -22,6 +23,7 @@ def liveness():
     return {
         "status": "ok",
         "service": settings.app_name,
+        "version": __version__,
         "env": settings.app_env,
     }
 
