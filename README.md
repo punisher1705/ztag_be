@@ -17,7 +17,7 @@ Built as a portfolio project to demonstrate production-grade backend engineering
 | `uv`-based dependency management | ✅ Done |
 | Health/readiness endpoints | ✅ Done (readiness check is a placeholder) |
 | Swagger/OpenAPI docs (APIFlask) | ✅ Scaffolded, no routes documented yet |
-| User model + Alembic migrations | 🔧 In progress |
+| User model + Alembic migrations | ✅ Alembic + User Model Setup |
 | JWT auth strategy | 🔧 In progress |
 | API key auth strategy | ⬜ Not started |
 | Redis-backed rate limiting | ⬜ Not started |
