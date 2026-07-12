@@ -14,7 +14,8 @@ services:
       redis:
         condition: service_healthy
     volumes:
-      - ./app:/app/app 
+      - ./app:/app/app
+      - ./migrations:/app/migrations
     networks:
       - gateway-net
     restart: unless-stopped
