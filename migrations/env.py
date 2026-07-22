@@ -15,6 +15,7 @@ sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 from app.db.sessions import Base  # noqa: E402
 from app.models import user  # noqa: E402, F401  (import registers the model with Base.metadata)
+from app.models import api_key
 
 # this is the Alembic Config object, which provides
 # access to the values within the .ini file in use.

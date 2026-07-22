@@ -18,7 +18,7 @@ Built as a portfolio project to demonstrate production-grade backend engineering
 | Health/readiness endpoints | ✅ Done (readiness check is a placeholder) |
 | Swagger/OpenAPI docs (APIFlask) | ✅ Scaffolded, no routes documented yet |
 | User model + Alembic migrations | ✅ Alembic + User Model Setup |
-| JWT auth strategy | 🔧 In progress |
+| JWT auth strategy | ✅ In progress |
 | API key auth strategy | ⬜ Not started |
 | Redis-backed rate limiting | ⬜ Not started |
 | Middleware pipeline (Chain of Responsibility) | ⬜ Not started |
